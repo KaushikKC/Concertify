@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -8,9 +9,9 @@ function Home() {
       <p className="text-xl md:text-2xl text-gray-300 mb-8 text-center">
         The ultimate event management platform for your concerts and events
       </p>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
-        Learn More
-      </button>
+      <Link to="/contact" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
+        Contact Us
+      </Link>
     </div>
   </div>
   )
