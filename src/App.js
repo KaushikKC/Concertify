@@ -11,7 +11,7 @@ import Contact from "./screens/Contact";
 function App() {
   return (
     <div>
-      <Navbar />  
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event" element={<Event />} />
@@ -20,7 +20,6 @@ function App() {
         <Route path="/eventdetails/:id" element={<EventDetails />} />
         <Route path="/venuedetails/:id" element={<VenueDetails />} />
       </Routes>
-
     </div>
   );
 }
