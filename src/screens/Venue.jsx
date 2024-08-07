@@ -8,7 +8,9 @@ const venues = [
     description: 'A luxurious hall with elegant decor and state-of-the-art facilities.',
     address: '123 Main St, Candoline, Goa',
     cost: '$500 per day',
-    image: 'https://img.freepik.com/free-photo/restaurant-interior_1127-3394.jpg?t=st=1722932885~exp=1722936485~hmac=02e931d40aaef5c2821a19370d3e9a110b7191fa51abab395fb7364023995c70&w=1380'
+    image: 'https://img.freepik.com/free-photo/restaurant-interior_1127-3394.jpg?t=st=1722932885~exp=1722936485~hmac=02e931d40aaef5c2821a19370d3e9a110b7191fa51abab395fb7364023995c70&w=1380',
+    contact: 12334567890,
+    capacity: 100
   },
   {
     id: 2,
@@ -16,7 +18,9 @@ const venues = [
     description: 'An outdoor venue surrounded by lush gardens, perfect for weddings and events.',
     address: '456 Elm St, Candoline, Goa',
     cost: '$300 per day',
-    image: 'https://img.freepik.com/free-photo/interior-restaurant-design_1409-7341.jpg?t=st=1722933961~exp=1722937561~hmac=b9c090e8d083dab81f1930f9f2a24fcfdc83c2afd797db6d126dd576d290d572&w=1380'
+    image: 'https://img.freepik.com/free-photo/interior-restaurant-design_1409-7341.jpg?t=st=1722933961~exp=1722937561~hmac=b9c090e8d083dab81f1930f9f2a24fcfdc83c2afd797db6d126dd576d290d572&w=1380',
+    contact: 12334567890,
+    capacity: 200
   },
   {
     id: 3,
@@ -24,7 +28,9 @@ const venues = [
     description: 'A modern conference center with river views and cutting-edge technology.',
     address: '789 Oak St, Baga, Goa',
     cost: '$700 per day',
-    image: 'https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg'
+    image: 'https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg',
+    contact: 12334567890,
+    capacity: 500
   }
 ];
 
@@ -67,7 +73,7 @@ function Venue() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredVenues.length > 0 ? (
             filteredVenues.map(venue => (
-              <Link to='/venuedetails' key={venue.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <Link to={`/venuedetails/${venue.id}`} key={venue.id} state={{ venue }} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <img src={venue.image} alt={venue.name} className="w-full h-48 object-cover"/>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-2">{venue.name}</h3>
