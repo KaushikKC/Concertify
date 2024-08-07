@@ -2,8 +2,8 @@ import React from 'react'
 
 function Home() {
   return (
-    <div className="bg-cover bg-center h-screen" style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/black-silhouettes-music-concert-poster-concept_1194-617147.jpg?t=st=1722848125~exp=1722851725~hmac=bc6f43f2e5a78b674a31453fd465cfafe076825882435420983f7a1fdfca78dd&w=1380)' }}>
-    <div className="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center">
+    <div className="bg-cover bg-center h-screen" style={{ backgroundImage: 'url(https://imgs.search.brave.com/otBrJGY1YEN1RzNt5LEJvVGQBl1oTbi93TEvJs92zWw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJiYXQuY29t/L2ltZy84ODI1NS1j/b25jZXJ0LWhkLXdh/bGxwYXBlci1hbmQt/YmFja2dyb3VuZC1p/bWFnZS5qcGc)' }}>
+    <div className="bg-black bg-opacity-50 h-full flex flex-col justify-start py-[150px] items-center">
       <h1 className="text-4xl md:text-6xl text-white font-bold mb-4">Welcome to Concertify</h1>
       <p className="text-xl md:text-2xl text-gray-300 mb-8 text-center">
         The ultimate event management platform for your concerts and events

@@ -11,7 +11,7 @@ function Navbar() {
       <div className="flex items-center">
         <ul className="flex space-x-4">
           <Link to="/event" className="text-gray-300 hover:text-white">Events</Link>
-          <Link to="/venue" className="text-gray-300 hover:text-white">Venue</Link>
+          <Link to="/venue" className="text-gray-300 hover:text-white">Venues</Link>
           <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
         </ul>
         <button 
