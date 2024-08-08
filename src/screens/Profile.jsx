@@ -31,13 +31,13 @@ const Profile = ({ name, email }) => {
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Name:
             </label>
-            <p className="text-gray-700 text-lg">{profile.name}</p>
+            <p className="text-gray-700 text-lg">{profile.userName}</p>
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Email Address:
             </label>
-            <p className="text-gray-700 text-lg">{profile.email}</p>
+            <p className="text-gray-700 text-lg">{profile.mail}</p>
           </div>
         </div>
       </div>

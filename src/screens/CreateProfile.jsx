@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useAccount } from "wagmi";
 
 const CreateProfile = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const { address, isConnecting, isDisconnected } = useAccount();
 
   const handleProfilePictureChange = (e) => {
     const file = e.target.files[0];
@@ -16,11 +21,32 @@ const CreateProfile = ({ onSubmit }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const profileData = { name, email, profilePicture };
-    localStorage.setItem("profile", JSON.stringify(profileData));
-    onSubmit(profileData);
+    setLoading(true);
+    setError("");
+
+    const profileData = { userName: name, mail: email, walletAddress: address };
+
+    try {
+      // Replace the URL with your backend API endpoint
+      const response = await axios.post(
+        "http://localhost:5006/api/auth/profile",
+        profileData
+      );
+      console.log("Profile created successfully:", response.data);
+
+      // Store profile data in localStorage (optional)
+      localStorage.setItem("profile", JSON.stringify(profileData));
+
+      // Call the onSubmit function to update the UI
+      onSubmit(profileData);
+    } catch (error) {
+      console.error("Error creating profile:", error);
+      setError("Failed to create profile. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -79,12 +105,14 @@ const CreateProfile = ({ onSubmit }) => {
               accept="image/*"
             />
           </div>
+          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
           <div className="flex items-center justify-between">
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              disabled={loading}
             >
-              Submit
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
